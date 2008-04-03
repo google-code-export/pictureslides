@@ -65,7 +65,7 @@ DOMAssistant.PictureSlides = function () {
 							return i;
 						}();
 						link.index = index;
-						link.addEvent("click", function () {
+						link.addEvent(this.thumbnailActivationEvent, function () {
 							DOMAssistant.PictureSlides.nextImage(this.index);
 							return false;
 						});

@@ -28,6 +28,7 @@ DOMAssistant.PictureSlides.set({
 				["images/picture2.jpg", "More descriptive text"]
 		*/
 	],
+	thumbnailActivationEvent : "click",
 	
 	fadeContainerId : "picture-slides-container",
 	mainImageId : "picture-slides-image",
