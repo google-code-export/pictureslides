@@ -38,8 +38,17 @@ DOMAssistant.PictureSlides = function () {
 				}
 			}
 		},
+		
+		init : function () {
+			$$(window).addEvent("load", function () {
+				DOMAssistant.PictureSlides.initSlides();
+			});
+			$$(window).addEvent("unload", function () {
+				DOMAssistant.PictureSlides.closeSession();
+			});
+		},
 	
-		init : function (){
+		initSlides : function (){
 	    	if(document.getElementById){
 				fadeContainer = $$(this.fadeContainerId);
 				mainImage = $$(this.mainImageId);
@@ -350,10 +359,4 @@ DOMAssistant.PictureSlides = function () {
 		}
 	};
 }();
-// ---
-$$(window).addEvent("load", function () {
-	DOMAssistant.PictureSlides.init();
-});
-$$(window).addEvent("unload", function () {
-	DOMAssistant.PictureSlides.closeSession();
-});
+DOMAssistant.PictureSlides.init();
