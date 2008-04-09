@@ -54,7 +54,15 @@ DOMAssistant.PictureSlides = function () {
 	    	if(document.getElementById){
 				fadeContainer = $$(this.fadeContainerId);
 				mainImage = $$(this.mainImageId);
-				this.slideshowIsSupported = fadeContainer && mainImage;
+				if (this.useFadeForSlideshow && (this.useFadingIn || this.useFadingOut)) {
+					//fadeIncrement : 0.1, // Goes from 0 to 1, and vice versa
+					//fadeInterval : 50, // Milliseconds
+					var fadeTime = (1 / this.fadeIncrement) * this.fadeInterval;
+					if (this.useFadingIn && this.useFadingOut) {
+						fadeTime = fadeTime * 2;
+					}
+					this.timeForSlideInSlideshow += fadeTime;
+				}
 				thumbnailContainer = $$(this.thumbnailContainerId);
 				if (!this.images) {
 					this.images = [];
@@ -78,6 +86,12 @@ DOMAssistant.PictureSlides = function () {
 							imgRef.src = imgSrc;
 						}
 						this.images.push([imgSrc, link.title]);
+					}
+				}
+				else if (preloadImages) {
+					for (var j=0, jl=this.images.length, imgCreate; j<jl; j++) {
+						imgCreate = new Image();
+						imgCreate.src = this.images[j][0];
 					}
 				}
 				
