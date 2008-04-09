@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/DTD/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>PictureSlides - Photo slideshows and galleries - DOMAssistant plugin</title>
+	<style type="text/css">
+		@import url("css/pictureslides.css");
+	</style>
+	<!--[if lt IE 7]>
+		<link rel="stylesheet" href="css/ie.css" type="text/css">
+	<![endif]-->
+</head>
+
+<body>
+	
+	<div id="container">
+		<div id="inner-container">
+			<div id="main-content">
+				<h1>PictureSlides</h1>
+				
+				<h2>How do I use it in a web page?</h2>
+				<h3>Include JavaScript files</h3>
+				<p>Start by including <a href="http://code.google.com/p/domassistant/downloads/list">DOMAssistant (Complete or Compressed version)</a>:</p>
+				<p>
+					<code>&lt;script type="text/javascript" src="js/DOMAssistantComplete.js"&gt;&lt;/script&gt;</code>
+				</p>
+				<p>Then, include the PictureSlides file and the PictureSlides-settings file:</p>
+				<p>
+					<code>&lt;script type="text/javascript" src="js/PictureSlides.js"&gt;&lt;/script&gt;</code><br>
+					<code>&lt;script type="text/javascript" src="js/PictureSlides-settings.js"&gt;&lt;/script&gt;</code>
+				</p>
+				
+				<p>Then, open up the <code>PictureSlides-settings.js</code> file. In here, you can customize how PictureSlides should work and how it should be presented.</p>
+				
+				<h3>Create an HTML page</h3>
+				<p>Create a web page where you put all the HTML that you want to be visible. Then point out the <code>id</code> of the elements you want to use in the <code>PictureSlides-settings.js</code> file.</p>
+				
+				<h3>Setting the large images</h3>
+				<p>The large images to used can either be linked in regular links within the element specified with the <code>thumbnailContainerId</code>. Like this:</p>
+				<p>
+					<code>&lt;a href="pictures/blossoming-tree.jpg" title="Blossoming tree"&gt;<br>
+						&lt;img src="thumbnails/blossoming-tree.jpg" alt="Blossoming tree"&gt;<br>
+					&lt;/a&gt;</code>
+				</p>
+				
+				<p>An alternative, if you don't use thumbnails in your page, is to link directly to them in the <code>PictureSlides-settings.js</code> file. For example:</p>
+				<p>
+					<code>images : [<br>
+						["images/picture1.jpg", "Text describing that picture"],<br>
+						["images/picture2.jpg", "More descriptive text"]  // No comma after the last one<br>
+					]</code>
+				</p>
+				
+				<p>If you want to dynamically generate the image information on the server through ASP.NET or PHP, you just need to create an array like this (after the JavaScript file has been included):</p>
+<pre><code>
+// In a JavaScript file
+DOMAssistant.PictureSlides.images : [
+	["1.jpg", "Bat bridge in Austin"],
+	["2.jpg", "Blossoming tree"],
+	["3.jpg", "Bat bridge from below"],
+	["4.jpg", "Birds", "Birds"]  // No comma after the last one
+]
+
+// In a JavaScript block
+DOMAssistant.PictureSlides.images = [
+	["1.jpg", "Bat bridge in Austin"],
+	["2.jpg", "Blossoming tree"],
+	["3.jpg", "Bat bridge from below"],
+	["4.jpg", "Birds"]  // No comma after the last one
+];
+</code></pre>
+				
+				<h2>Settings and parameters</h2>
+				<dl>
+					<dt><code>useImageText : true</code></dt>
+					<dd>Whether to use a text to accompany the selected image. Automatically taken from the <code>title</code> attribute of the thumbnail image link, or the second value for each image in <code>images</code> in the <code>PictureSlides-settings.js file</code>.</dd>
+					
+					<dt><code>useImageCounter : true</code></dt>
+					<dd>If a counter should be shown, displaying the current image number and the total image count. E.g. 10 / 15.</dd>
+					
+					<dt><code>useNavigationLinks : true</code></dt>
+					<dd>If previous, next, start and stop slideshow links should be shown.</dd>
+					
+					<dt><code>useKeyboardShortcuts : true</code></dt>
+					<dd>Wheter to use keyboard shortcuts to select image and start/stop a slideshow. Arrow left for previous image, arrow right for next image and space bar starts/stops the slideshow.</dd>
+					
+					<dt><code>useThumbnails : true</code></dt>
+					<dd>If thumbnails should be used.</dd>
+						
+					<dt><code>useFadingIn : true</code></dt>
+					<dd>If fading in should be used.</dd>
+						
+					<dt><code>useFadingOut : true</code></dt>
+					<dd>If fading out should be used.</dd>
+					
+					<dt><code>useFadeWhenNotSlideshow : true</code></dt>
+					<dd>If fading should be used when changing image and it is not during a slideshow.</dd>
+					
+					<dt><code>useFadeForSlideshow : true</code></dt>
+					<dd>If fading should be used during a slideshow.</dd>
+					
+					<dt><code>useDimBackgroundForSlideshow : true</code></dt>
+					<dd>If the background document should be dimmed out during a slideshow.</dd>
+					
+					<dt><code>loopSlideshow : true</code></dt>
+					<dd>If the slideshow should loop and start all over.</dd>
+					
+					<dt><code>usePreloading : true</code></dt>
+					<dd>If the large images should be preloaded, to get a smoother user experience. Lots of large images and using preloading will result in a larger server load.</dd>
+					
+					<dt><code>startIndex : 0</code></dt>
+					<dd>What image to start with. = is the first image, and so on.</dd>
+					
+					<dt><code>startSlideshowAtLoad : false</code></dt>
+					<dd>If the slideshow should start playing automatically as soon as the page has loaded.</dd>
+					
+					<dt><code>dimBackgroundAtLoad : false</code></dt>
+					<dd>If the background should be dimmed out as soon as the page has loaded.</dd>
+					
+					<dt><code>images : [<br>
+						["images/picture1.jpg", "Text describing that picture"],<br>
+						["images/picture2.jpg", "More descriptive text"]<br>
+					]</code></dt>
+					<dd>Automatically set from the thumbnail links. If no thumbnail links are present, specify large images to use here.</dd>
+					
+					<dt><code>thumbnailActivationEvent : "click"</code></dt>
+					<dd>What event on a thumbnail should change the large image to that one. E.g. "click", "mouseover".</dd>
+					
+					<dt><code>fadeContainerId : "picture-slides-container"</code></dt>
+					<dd>The <code>id</code> of the HTML element containing the main image and text, and will fade in/out if enabled.</dd>
+					
+					<dt><code>mainImageId : "picture-slides-image"</code></dt>
+					<dd>The <code>id</code> of the HTML element which is the main image element.</dd>
+					
+					<dt><code>imageTextContainerId : "picture-slides-image-text"</code></dt>
+					<dd>The <code>id</code> of the HTML element containing the image text.</dd>
+					
+					<dt><code>previousLinkId : "previous-image"</code></dt>
+					<dd>The <code>id</code> of the HTML element which is the previous image link.</dd>
+					
+					<dt><code>nextLinkId : "next-image"</code></dt>
+					<dd>The <code>id</code> of the HTML element whcih is the next image link.</dd>
+					
+					<dt><code>imageCounterId : "image-counter"</code></dt>
+					<dd>The <code>id</code> of the HTML element showing the image counter.</dd>
+					
+					<dt><code>startSlideShowId : "start-slideshow"</code></dt>
+					<dd>The <code>id</code> of the HTML element which is the link to start the slideshow.</dd>
+					
+					<dt><code>stopSlideShowId : "stop-slideshow"</code></dt>
+					<dd>The <code>id</code> of the HTML element which is the link to stop the slideshow.</dd>
+					
+					<dt><code>thumbnailContainerId: "picture-slides-thumbnails"</code></dt>
+					<dd>The <code>id</code> of the HTML element containing all the thumbnail links and images.</dd>
+					
+					<dt><code>dimBackgroundOverlayId : "picture-slides-dim-overlay"</code></dt>
+					<dd>The <code>id</code> of the HTML element which will be used to dim the background.</dd>
+					
+					<dt><code>elementOnTopOfDimBackgroundId : "picture-slides-frame"</code></dt>
+					<dd>The <code>id</code> of the HTML element that won't be dimmed out.</dd>
+					
+					<dt><code>fadeIncrement : 0.1</code></dt>
+					<dd>Amount for each step to increase/decrease the current fade level. Goes from 0 to 1, and vice versa.</dd>
+					
+					<dt><code>fadeInterval : 50</code></dt>
+					<dd>Time between each fadeIncrement is triggered. Set in milliseconds, e.g. 1000 = 1 second.</dd>
+					
+					<dt><code>timeForSlideInSlideshow : 2000</code></dt>
+					<dd>How long each slide is shown in a slideshow. Set in milliseconds, e.g. 1000 = 1 second.</dd>
+				</dl>
+				
+				<h2>Thumbnail class names applied in the script</h2>
+				<p>In general no class names are applied, except for the chosen thumbnail's parent link, which will get the class: "selected".</p>
+			</div>
+			
+			<div id="navigation">
+				<h3>Downloads</h3>
+				<ul>
+					<li><a href="http://code.google.com/p/pictureslides/downloads/list">Download PictureSlides</a></li>
+					<li><a href="http://code.google.com/p/domassistant/downloads/list">Download DOMAssistant (Complete or Compressed version)</a></li>
+				</ul>
+				
+				<h3>Documentation</h3>
+				<ul>
+					<li><a href="index.htm">Introduction</a></li>
+					<li><a href="guidelines.htm">Guidelines &amp; compliance</a></li>
+					<li><a href="implementation.htm" class="selected">Implementation</a></li>
+				</ul>
+				
+				<h3>Contact</h3>
+				<ul>
+					<li><a href="http://www.robertnyman.com/about">Contact the author</a></li>
+					<li><a href="http://code.google.com/p/pictureslides/issues/list">Report an issue</a></li>
+				</ul>
+			</div>		
+		</div>
+		
+		<div id="footer">
+			Created by Robert Nyman, <a href="http://www.robertnyman.com">http://www.robertnyman.com</a>
+		</div>
+		
+	</div>
+	
+	<!-- Google Analytics code -->
+	<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		_uacct = "UA-56164-1";
+		urchinTracker();
+	</script>
+	
+	<!-- Start of StatCounter Code -->
+	<script type="text/javascript">
+	<!-- 
+	var sc_project=593937; 
+	var sc_partition=4; 
+	var sc_security="175a1fec"; 
+	//-->
+	</script>
+		
+	<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><a class="statcounter" href="http://www.statcounter.com/"><img class="statcounter" src="http://c5.statcounter.com/counter.php?sc_project=593937&amp;java=0&amp;security=175a1fec" alt="free geoip" /></a></div></noscript>
+	<!-- End of StatCounter Code -->
+	
+	<!-- gVisit code -->
+	<script type="text/javascript" src="http://www.gvisit.com/record.php?sid=de2c9dfeacdc0124bdb3fe3eab766832"></script>
+	
+</body>
+</html>

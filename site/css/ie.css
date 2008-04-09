@@ -1,0 +1,11 @@
+body{
+	text-align: center;
+}
+
+div#container{
+	text-align: left;
+}
+
+div#jas-tags ul li input{
+	height: 13px;
+}
