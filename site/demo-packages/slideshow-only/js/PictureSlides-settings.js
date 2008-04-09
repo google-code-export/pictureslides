@@ -15,23 +15,20 @@ DOMAssistant.PictureSlides.set({
 	useFadingOut : true,
 	useFadeWhenNotSlideshow : true,
 	useFadeForSlideshow : true,
-	useDimBackgroundForSlideshow : true,
+	useDimBackgroundForSlideshow : false,
 	loopSlideshow : true,
 	usePreloading : false,
 	
 	// At page load
-	startIndex : 0,	
-	startSlideshowAtLoad : false,
+	startIndex : 0,
+	startSlideshowAtLoad : true,
 	dimBackgroundAtLoad : false,
 	
 	// Large images to use and thumbnail settings
 	images : [
-		/* 
-			Set paths to the large images. Only needed if not using thumbnails with links to them.
-			Example:
-				["images/picture1.jpg", "Text describing that picture"],
-				["images/picture2.jpg", "More descriptive text"]
-		*/
+		["pictures/1.jpg", ""],
+		["pictures/2.jpg", ""],
+		["pictures/3.jpg", ""]
 	],
 	thumbnailActivationEvent : "click",
 	
