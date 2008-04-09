@@ -355,7 +355,7 @@ DOMAssistant.PictureSlides = function () {
 	
 		keyboardNavigation : function (evt){
 	    	var keyCode = evt.keyCode;
-	    	if(!evt.altKey && this.images.length > 0){
+	    	if(!evt.altKey && !evt.metaKey && this.images.length > 0){
 				switch(keyCode){
 					case 32:
 						if(slideshowIsPlaying){
