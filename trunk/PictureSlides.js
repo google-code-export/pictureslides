@@ -2,6 +2,7 @@
 /*
 	DOMAssistant.PictureSlides is developed by Robert Nyman, http://www.robertnyman.com
 	For more information, please see http://www.robertnyman.com/picture-slides
+	Released under a MIT License
 */
 DOMAssistant.PictureSlides = function () {
 	var useMSFilter = false;
@@ -19,6 +20,7 @@ DOMAssistant.PictureSlides = function () {
 	var mainImage = null;
 	var imageTextContainer = null;
 	var thumbnailContainer = null;
+	var preloadImages = true;
 	var imageIndex = 0;
 	var slideshowIsPlaying = false;
 	return {
@@ -57,9 +59,10 @@ DOMAssistant.PictureSlides = function () {
 				if (!this.images) {
 					this.images = [];
 				}
-				if (this.useThumbnails && thumbnailContainer) {						
+				preloadImages = this.usePreloading || true;
+				if (this.useThumbnails && thumbnailContainer) {
 					this.imageLinks = thumbnailContainer.cssSelect("a");
-					for (var i=0, il=this.imageLinks.length, link, index; i<il; i++) {
+					for (var i=0, il=this.imageLinks.length, link, index, imgSrc, imgRef; i<il; i++) {
 						link = $(this.imageLinks[i]);
 						index = function () {
 							return i;
@@ -69,7 +72,12 @@ DOMAssistant.PictureSlides = function () {
 							DOMAssistant.PictureSlides.nextImage(this.index);
 							return false;
 						});
-						this.images.push([link.href, link.title]);
+						imgSrc = link.href;
+						if (preloadImages) {
+							imgRef = new Image();
+							imgRef.src = imgSrc;
+						}
+						this.images.push([imgSrc, link.title]);
 					}
 				}
 				
@@ -252,7 +260,7 @@ DOMAssistant.PictureSlides = function () {
 			}	
 			slideshowIsPlaying = false;
 			if (this.useFadeForSlideshow && (this.useFadingOut || this.useFadingIn)) {
-				this.setFadeParams(false, 1, 0);
+				this.setFadeParams(true, 1, 0);
 				this.setFade();
 			}
 			if(dimmingEnabled){
