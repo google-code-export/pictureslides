@@ -6,18 +6,18 @@
 */
 DOMAssistant.PictureSlides.set({
 	// Switches to decide what features to use
-	useImageText : true,
-	useImageCounter : true,
+	useImageText : false,
+	useImageCounter : false,
 	useNavigationLinks : true,
 	useKeyboardShortcuts : true,
-	useThumbnails : true,
-	useFadingIn : true,
-	useFadingOut : true,
-	useFadeWhenNotSlideshow : true,
-	useFadeForSlideshow : true,
-	useDimBackgroundForSlideshow : true,
+	useThumbnails : false,
+	useFadingIn : false,
+	useFadingOut : false,
+	useFadeWhenNotSlideshow : false,
+	useFadeForSlideshow : false,
+	useDimBackgroundForSlideshow : false,
 	loopSlideshow : true,
-	usePreloading : false,
+	usePreloading : true,
 	
 	// At page load
 	startIndex : 0,	
@@ -25,13 +25,19 @@ DOMAssistant.PictureSlides.set({
 	dimBackgroundAtLoad : false,
 	
 	// Large images to use and thumbnail settings
+	/* 
+		Set paths to the large images. Only needed if not using thumbnails with links to them.
+	*/
 	images : [
-		/* 
-			Set paths to the large images. Only needed if not using thumbnails with links to them.
-			Example:
-				["images/picture1.jpg", "Text describing that picture"],
-				["images/picture2.jpg", "More descriptive text"]
-		*/
+		["pictures/1.jpg", ""],
+		["pictures/2.jpg", ""],
+		["pictures/3.jpg", ""],
+		["pictures/4.jpg", ""],
+		["pictures/5.jpg", ""],
+		["pictures/6.jpg", ""],
+		["pictures/7.jpg", ""],
+		["pictures/8.jpg", ""],
+		["pictures/9.jpg", ""]
 	],
 	thumbnailActivationEvent : "click",
 	

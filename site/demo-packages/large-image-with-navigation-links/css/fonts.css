@@ -1,0 +1,26 @@
+/* Tag-specific */
+html{
+	font-size: 100%;	
+}
+
+body{
+	font: 0.75em/1em Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #000;
+	background: #fff;
+}
+
+input, select, textarea{
+	font-size: 100%;
+}
+
+h1{
+	font: 3em/1em Arial, Helvetica, sans-serif;
+}
+
+h2{
+	font: 1.5em/1.3em Arial, Helvetica, sans-serif;	
+}
+
+h3{
+	font: bold 1.2em/1em Arial, Helvetica, sans-serif;	
+}

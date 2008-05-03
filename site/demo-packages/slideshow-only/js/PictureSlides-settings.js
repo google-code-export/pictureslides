@@ -6,17 +6,17 @@
 */
 DOMAssistant.PictureSlides.set({
 	// Switches to decide what features to use
-	useImageText : true,
-	useImageCounter : true,
-	useNavigationLinks : true,
-	useKeyboardShortcuts : true,
-	useThumbnails : true,
+	useImageText : false,
+	useImageCounter : false,
+	useNavigationLinks : false,
+	useKeyboardShortcuts : false,
+	useThumbnails : false,
 	useFadingIn : true,
 	useFadingOut : true,
-	useFadeWhenNotSlideshow : true,
-	useFadeForSlideshow : true,
+	useFadeWhenNotSlideshow : false,
+	useFadeForSlideshow : false,
 	useDimBackgroundForSlideshow : false,
-	loopSlideshow : true,
+	loopSlideshow : false,
 	usePreloading : false,
 	
 	// At page load
@@ -33,20 +33,20 @@ DOMAssistant.PictureSlides.set({
 	thumbnailActivationEvent : "click",
 	
 	// IDs of HTML elements to use
-	fadeContainerId : "picture-slides-container",
-	mainImageId : "picture-slides-image",
-	imageTextContainerId : "picture-slides-image-text",
-	previousLinkId : "previous-image",
-	nextLinkId : "next-image",
-	imageCounterId : "image-counter",
-	startSlideShowId : "start-slideshow",
-	stopSlideShowId : "stop-slideshow",
-	thumbnailContainerId: "picture-slides-thumbnails",
-	dimBackgroundOverlayId : "picture-slides-dim-overlay",
-	elementOnTopOfDimBackgroundId : "picture-slides-frame",	
+	fadeContainerId : null,
+	mainImageId : null,
+	imageTextContainerId : null,
+	previousLinkId : null,
+	nextLinkId : null,
+	imageCounterId : null,
+	startSlideShowId : null,
+	stopSlideShowId : null,
+	thumbnailContainerId: null,
+	dimBackgroundOverlayId : null,
+	elementOnTopOfDimBackgroundId : null,
 	
 	// Fading settings
 	fadeIncrement : 0.1, // Goes from 0 to 1, and vice versa
-	fadeInterval : 50, // Milliseconds	
+	fadeInterval : 20, // Milliseconds	
 	timeForSlideInSlideshow : 2000 // Milliseconds
 });
