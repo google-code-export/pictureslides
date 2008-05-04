@@ -36,8 +36,8 @@ DOMAssistant.PictureSlides.set({
 	thumbnailActivationEvent : "click",
 	
 	// IDs of HTML elements to use
+	mainImageId : "picture-slides-image", // Mandatory
 	fadeContainerId : "picture-slides-container",
-	mainImageId : "picture-slides-image",
 	imageTextContainerId : "picture-slides-image-text",
 	previousLinkId : "previous-image",
 	nextLinkId : "next-image",
