@@ -46,10 +46,11 @@
 				
 				<p>An alternative, if you don't use thumbnails in your page, is to link directly to them in the <code>PictureSlides-settings.js</code> file. For example:</p>
 				<p>
-					<code>images : [<br>
-						["images/picture1.jpg", "Text describing that picture"],<br>
-						["images/picture2.jpg", "More descriptive text"]  // No comma after the last one<br>
-					]</code>
+					<pre><code>images : [
+	["images/picture1.jpg", "Text describing that picture"],
+	["images/picture2.jpg", "More descriptive text"]  
+	// Important! No comma after the last one.
+]</code></pre>
 				</p>
 				
 				<p>If you want to dynamically generate the image information on the server through ASP.NET or PHP, you just need to create an array like this (after the JavaScript file has been included):</p>
@@ -59,7 +60,8 @@ DOMAssistant.PictureSlides.images : [
 	["1.jpg", "Bat bridge in Austin"],
 	["2.jpg", "Blossoming tree"],
 	["3.jpg", "Bat bridge from below"],
-	["4.jpg", "Birds", "Birds"]  // No comma after the last one
+	["4.jpg", "Birds", "Birds"]
+	// Important! No comma after the last one.
 ]
 
 // In a JavaScript block
@@ -67,7 +69,8 @@ DOMAssistant.PictureSlides.images = [
 	["1.jpg", "Bat bridge in Austin"],
 	["2.jpg", "Blossoming tree"],
 	["3.jpg", "Bat bridge from below"],
-	["4.jpg", "Birds"]  // No comma after the last one
+	["4.jpg", "Birds"]
+	// Important! No comma after the last one.
 ];
 </code></pre>
 				
@@ -127,11 +130,11 @@ DOMAssistant.PictureSlides.images = [
 					<dt><code>thumbnailActivationEvent : "click"</code></dt>
 					<dd>What event on a thumbnail should change the large image to that one. E.g. "click", "mouseover".</dd>
 					
-					<dt><code>fadeContainerId : "picture-slides-container"</code></dt>
-					<dd>The <code>id</code> of the HTML element containing the main image and text, and will fade in/out if enabled.</dd>
-					
 					<dt><code>mainImageId : "picture-slides-image"</code></dt>
 					<dd>The <code>id</code> of the HTML element which is the main image element.</dd>
+					
+					<dt><code>fadeContainerId : "picture-slides-container"</code></dt>
+					<dd>The <code>id</code> of the HTML element containing the main image and text, and will fade in/out if enabled.</dd>
 					
 					<dt><code>imageTextContainerId : "picture-slides-image-text"</code></dt>
 					<dd>The <code>id</code> of the HTML element containing the image text.</dd>

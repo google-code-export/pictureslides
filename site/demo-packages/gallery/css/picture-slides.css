@@ -36,7 +36,6 @@ dl, p, ul, ol{
 	padding: 0;
 }
 
-
 a{
 	color: #3a5483;
 }
@@ -63,8 +62,10 @@ input{
 
 /* General */
 #container{
-	width: 450px;
+	overflow: hidden;
+	width: 452px;
 	margin: 2em auto;
+	padding-bottom: 4em;
 }
 
 #picture-slides-container{
@@ -102,6 +103,11 @@ input{
 	width: 100px;
 	height: 75px;
 	margin: 0 10px 10px 0;
+}
+
+#picture-slides-thumbnails ul li a:focus{
+	outline: 0;
+	-moz-outline-style: none;
 }
 
 #picture-slides-thumbnails ul li img{
@@ -165,4 +171,8 @@ li.slideshow-item{
 	opacity: 0.8;
 	display: none;
 	z-index: 10;
+}
+
+ul#navigation-controls a.disabled{
+	color: #ccc;
 }

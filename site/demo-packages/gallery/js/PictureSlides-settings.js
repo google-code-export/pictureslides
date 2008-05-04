@@ -16,7 +16,7 @@ DOMAssistant.PictureSlides.set({
 	useFadeWhenNotSlideshow : true,
 	useFadeForSlideshow : true,
 	useDimBackgroundForSlideshow : true,
-	loopSlideshow : true,
+	loopSlideshow : false,
 	usePreloading : false,
 	
 	// At page load
@@ -36,8 +36,8 @@ DOMAssistant.PictureSlides.set({
 	thumbnailActivationEvent : "click",
 	
 	// IDs of HTML elements to use
+	mainImageId : "picture-slides-image", // Mandatory
 	fadeContainerId : "picture-slides-container",
-	mainImageId : "picture-slides-image",
 	imageTextContainerId : "picture-slides-image-text",
 	previousLinkId : "previous-image",
 	nextLinkId : "next-image",
@@ -50,6 +50,6 @@ DOMAssistant.PictureSlides.set({
 	
 	// Fading settings
 	fadeIncrement : 0.1, // Goes from 0 to 1, and vice versa
-	fadeInterval : 10, // Milliseconds	
+	fadeInterval : 30, // Milliseconds	
 	timeForSlideInSlideshow : 2000 // Milliseconds
 });

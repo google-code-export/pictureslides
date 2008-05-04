@@ -1,4 +1,4 @@
-/*extern DOMAssistant, $, $$ */
+/*global DOMAssistant, $, $$ */
 /*
 	DOMAssistant.PictureSlides is developed by Robert Nyman, http://www.robertnyman.com
 	For more information, please see http://www.robertnyman.com/picture-slides
@@ -76,8 +76,9 @@ DOMAssistant.PictureSlides = function () {
 							return i;
 						}();
 						link.index = index;
-						link.addEvent(this.thumbnailActivationEvent, function () {
+						link.addEvent(this.thumbnailActivationEvent, function (evt) {
 							DOMAssistant.PictureSlides.nextImage(this.index);
+							DOMAssistant.preventDefault(evt);
 							return false;
 						});
 						imgSrc = link.href;
@@ -140,7 +141,7 @@ DOMAssistant.PictureSlides = function () {
 						});	
 						dimmingEnabled = true;
 					}
-					useMSFilter = typeof fadeContainer.style.filter !== "undefined";
+					useMSFilter = (fadeContainer && typeof fadeContainer.style.filter !== "undefined") || false;
 					if (this.startSlideshowAtLoad) {
 						this.startSlideshow();
 					}
@@ -188,8 +189,18 @@ DOMAssistant.PictureSlides = function () {
 				imageCounter.replaceContent((((this.images.length > 0)? index : -1) + 1) + " / " + this.images.length);
 			}
 			if (this.useNavigationLinks) {
-				previousLink.setStyle("visibility", (index > 0)? "visible" : "hidden");
-				nextLink.setStyle("visibility", (index < (this.images.length - 1))? "visible" : "hidden");
+				if (index > 0) {
+					previousLink.removeClass("disabled");
+				}
+				else {
+					previousLink.addClass("disabled");
+				}
+				if (index < (this.images.length - 1)) {
+					nextLink.removeClass("disabled");
+				}
+				else {
+					nextLink.addClass("disabled");
+				}
 			}
 			imageIndex = index;
 		},
@@ -290,11 +301,7 @@ DOMAssistant.PictureSlides = function () {
 					obj.fade();
 				};
 			}(this), this.fadeInterval);
-			this.setImageTimer = setInterval(function (obj) {
-				return function () {
-					obj.setImage(obj.currentIndex);
-				};
-			}(this), this.fadeInterval);
+			this.setImage(this.currentIndex);
 		},
 	
 		fadeOut : function (){
@@ -309,11 +316,13 @@ DOMAssistant.PictureSlides = function () {
 	
 		fadeOutDone : function (){
 			if(!this.useFadingIn){
+				alert("no");
 				this.fadeLevel = 1;
 				this.setFade();
 				this.setImage(this.currentIndex);
 			}
 			else {
+				//alert("done");
 				this.fadeIn();
 			}
 		},

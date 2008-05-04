@@ -5,8 +5,6 @@ html{
 
 body{
 	font: 0.625em/1em Verdana, Geneva, Arial, Helvetica, sans-serif;
-	color: #000;
-	background: #fff;
 }
 
 input, select, textarea{
@@ -36,9 +34,8 @@ dl, p, ul, ol{
 	padding: 0;
 }
 
-
 a{
-	color: #3a5483;
+	color: #FF7F00;
 }
 
 dt{
@@ -46,7 +43,8 @@ dt{
 }
 
 body{	
-	background: #fff;
+	color: #fff;
+	background: #000;
 }
 
 form label{
@@ -72,14 +70,17 @@ input{
 	width: 100%;
 }
 
+#picture-slides-image{
+	float: left;
+}
+
 #picture-slides-frame{
 	float: left;
-	width: 430px;
+	width: 320px;
 	text-align: center;
 	background: #fff;
 	margin: 10px 0;
-	padding: 10px;
-	border: 1px solid #666;
+	border: 10px ridge #FF7F00;
 }
 
 #picture-slides-thumbnails{
@@ -119,10 +120,6 @@ input{
 
 #picture-slides-image-text{
 	text-align: center;
-}
-
-#picture-slides-image{
-	margin-bottom: 1em;
 }
 
 #links{

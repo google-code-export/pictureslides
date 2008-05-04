@@ -1,5 +1,29 @@
-/* Importing other styles */
-@import url("fonts.css");
+/* Fonts */
+html{
+	font-size: 100%;	
+}
+
+body{
+	font: 0.75em/1em Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #000;
+	background: #fff;
+}
+
+input, select, textarea{
+	font-size: 100%;
+}
+
+h1{
+	font: 3em/1em Arial, Helvetica, sans-serif;
+}
+
+h2{
+	font: 1.5em/1.3em Arial, Helvetica, sans-serif;	
+}
+
+h3{
+	font: bold 1.2em/1em Arial, Helvetica, sans-serif;	
+}
 
 /* Tag-specific */
 html, body, form, fieldset, li, h1, h2, h3, h4, h5, h6, p, ul, dl, dt, dd, input{
@@ -11,6 +35,10 @@ h1{
 	background: #000 url(../images/arrow.gif) no-repeat 0px 10px;
 	color:#fff;
 	padding: 5px 5px 5px 45px;
+}
+
+h2{
+	margin-bottom: 1em;
 }
 
 dl, p, ul, ol{
@@ -43,149 +71,32 @@ input{
 }
 
 /* General */
-
-
-div#jas-container{
-	/* Width HAS to be here for IE to render the filter */
-	width: 320px;
-}
-
-div#jas-frame{
-	float: left;
-	width: 460px;
-	margin: 10px 0 0 0;
-	padding: 10px;
-	background: #fff url(../images/jas-frame-bg.gif) repeat-x 0px 1px;
-	border-top: dotted 1px #888;
-	border-right: dotted 1px #888;
-}
-
-
-
-
-/* General */
-
 div#container{
+	float: right;
 	width: 643px;
-	margin: 2em auto;
+	margin: 2em 3em;
 	background: #fff;
 }
 
-
-div#jas-container{
-
-	/* Width HAS to be here for IE to render the filter */
-	width: 320px;
-}
-
-div#jas-tags{
-	float: right;
-	top: 22px;
-	left: 85px;
-	width: 141px;
-	padding:10px;
-	background: #F6F5F3 url(../images/tags-box-bg.gif) repeat-x 0px 1px;
-	margin-top:10px;
-	border-top: dotted 1px #888;
-	border-bottom: dotted 1px #888;
-}
-
-
-div#jas-tags h3{
-	display: block;
-	margin-bottom: 1.5em;
-}
-
-div#jas-tags ul{
-	list-style: none;
-}
-
-div#jas-tags ul li{
-	margin-bottom: 0.3em;
-}
-
-div#jas-tags ul li input{
-	margin-right: 3px;
-}
-
-div#jas-thumbnails{
-	float: right;
-	width: 130px;
-	height:240px;
-	overflow: auto;
-	margin-top: 2.5em;
-}
-
-div#jas-thumbnails ul{
-	list-style: none;
-	width: 100px;
-	margin: 0 0 10px 10px;
-	overflow: hidden;
-}
-
-div#jas-thumbnails ul li{
+#picture-slides-image{
 	float: left;
-	width: 100px;
-	height: 75px;
-	margin: 0 10px 10px 0;
-}
-
-div#jas-thumbnails ul li img{
-	width: 100px;
-	height: 75px;
-	cursor: pointer;
-}
-
-div#jas-thumbnails ul li.selected-parent{
-	width: 96px;
-	height: 71px;
-	padding: 1px;
-	border: 1px solid #3DCC00;
-}
-
-div#jas-thumbnails ul li img.selected{
-	width: 96px;
-	height: 71px;
-}
-
-h2#jas-image-text{
-	display: block;
-	text-align: center;
-	font-weight: bold;
-	margin-bottom:5px;
-}
-
-img#jas-image{
-	margin-bottom: 1em;
-}
-
-ul#links{
-	border-top: dotted 1px #888;
-	display: block;
-	clear: left;
-	padding: 1em 0 1em 4em;
 }
 
 ul#navigation-controls{
-	width: 310px;
+	float: left;
 	list-style: none;
-	float:left;
-	clear: left;	
-	margin: 0 auto;
+	margin-left: 1em;
 }
 
 ul#navigation-controls li{
-	float: left;
 	line-height: 1.5em;
 	margin-right: 0.5em;
-}
-
-ul#navigation-controls li#image-counter{
-	margin: 0 0.75em 0 0.5em;
 }
 
 li.slideshow-item{
 	margin-left: 3em;
 }
 
-
+ul#navigation-controls a.disabled{
+	color: #ccc;
+}
