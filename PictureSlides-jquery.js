@@ -313,13 +313,11 @@ jQuery.PictureSlides = function () {
 	
 		fadeOutDone : function (){
 			if(!this.useFadingIn){
-				alert("no");
 				this.fadeLevel = 1;
 				this.setFade();
 				this.setImage(this.currentIndex);
 			}
 			else {
-				//alert("done");
 				this.fadeIn();
 			}
 		},
