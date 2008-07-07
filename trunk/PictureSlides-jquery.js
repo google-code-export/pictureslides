@@ -70,22 +70,23 @@ jQuery.PictureSlides = function () {
 				preloadImages = this.usePreloading || true;
 				if (this.useThumbnails && thumbnailContainer) {
 					this.imageLinks = $(thumbnailContainer).find("a");
-					for (var i=0, il=this.imageLinks.length, link, index, imgSrc, imgRef; i<il; i++) {
+					for (var i=0, il=this.imageLinks.length, link, linkElm, index, imgSrc, imgRef; i<il; i++) {
 						link = $(this.imageLinks[i]);
+						linkElm = link[0];
 						index = function () {
 							return i;
 						}();
-						link[0].index = index;
+						linkElm.index = index;
 						link[this.thumbnailActivationEvent](function (evt) {
 							jQuery.PictureSlides.nextImage(this.index);
 							return false;
 						});
-						imgSrc = link.href;
+						imgSrc = linkElm.href;
 						if (preloadImages) {
 							imgRef = new Image();
 							imgRef.src = imgSrc;
 						}
-						this.images.push([imgSrc, link.title]);
+						this.images.push([imgSrc, linkElm.title]);
 					}
 				}
 				else if (preloadImages) {
@@ -368,14 +369,17 @@ jQuery.PictureSlides = function () {
 						else{
 							this.startSlideshow();
 						}
+						evt.preventDefault();
 						break;
 					case 37:
 					case 38:
 						this.previousImage();
+						evt.preventDefault();
 						break;
 					case 39:
 					case 40:
 						this.nextImage();
+						evt.preventDefault();
 						break;
 				}
 			}
