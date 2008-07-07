@@ -21,14 +21,23 @@
 				
 				<h2>How do I use it in a web page?</h2>
 				<h3>Include JavaScript files</h3>
-				<p>Start by including <a href="http://code.google.com/p/domassistant/downloads/list">DOMAssistant (Complete or Compressed version)</a>:</p>
+				<p>Start by including the latest version of <a href="http://code.google.com/p/domassistant/downloads/list">DOMAssistant (Complete or Compressed version)</a> or <a href="http://code.google.com/p/jqueryjs/downloads/list">jQuery (Minified version suggested)</a>:</p>
 				<p>
 					<code>&lt;script type="text/javascript" src="js/DOMAssistantComplete.js"&gt;&lt;/script&gt;</code>
+				</p>
+				<p>For jQuery:</p>
+				<p>
+					<code>&lt;script type="text/javascript" src="js/jquery-1.2.6.min.js"&gt;&lt;/script&gt;</code>
 				</p>
 				<p>Then, include the PictureSlides file and the PictureSlides-settings file:</p>
 				<p>
 					<code>&lt;script type="text/javascript" src="js/PictureSlides.js"&gt;&lt;/script&gt;</code><br>
 					<code>&lt;script type="text/javascript" src="js/PictureSlides-settings.js"&gt;&lt;/script&gt;</code>
+				</p>
+				<p>For jQuery:</p>
+				<p>
+					<code>&lt;script type="text/javascript" src="js/PictureSlides-jquery.js"&gt;&lt;/script&gt;</code><br>
+					<code>&lt;script type="text/javascript" src="js/PictureSlides-settings-jquery.js"&gt;&lt;/script&gt;</code>
 				</p>
 				
 				<p>Then, open up the <code>PictureSlides-settings.js</code> file. In here, you can customize how PictureSlides should work and how it should be presented.</p>
@@ -66,6 +75,26 @@ DOMAssistant.PictureSlides.images : [
 
 // In a JavaScript block
 DOMAssistant.PictureSlides.images = [
+	["1.jpg", "Bat bridge in Austin"],
+	["2.jpg", "Blossoming tree"],
+	["3.jpg", "Bat bridge from below"],
+	["4.jpg", "Birds"]
+	// Important! No comma after the last one.
+];
+</code></pre>
+				<p>For jQuery:</p>
+<pre><code>
+// In a JavaScript file
+jQuery.PictureSlides.images : [
+	["1.jpg", "Bat bridge in Austin"],
+	["2.jpg", "Blossoming tree"],
+	["3.jpg", "Bat bridge from below"],
+	["4.jpg", "Birds", "Birds"]
+	// Important! No comma after the last one.
+]
+
+// In a JavaScript block
+jQuery.PictureSlides.images = [
 	["1.jpg", "Bat bridge in Austin"],
 	["2.jpg", "Blossoming tree"],
 	["3.jpg", "Bat bridge from below"],
@@ -182,6 +211,7 @@ DOMAssistant.PictureSlides.images = [
 				<ul>
 					<li><a href="http://code.google.com/p/pictureslides/downloads/list">Download PictureSlides</a></li>
 					<li><a href="http://code.google.com/p/domassistant/downloads/list">Download DOMAssistant (Complete or Compressed version)</a></li>
+					<li><a href="http://code.google.com/p/jqueryjs/downloads/list">Download jQuery (Minified version suggested)</a></li>
 				</ul>
 				
 				<h3>Documentation</h3>
