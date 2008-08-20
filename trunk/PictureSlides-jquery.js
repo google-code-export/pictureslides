@@ -101,7 +101,7 @@ jQuery.PictureSlides = function () {
 						this.startIndex = 0;
 					}
 					if(this.useImageText){
-						imageTextContainer = $(this.imageTextContainerId)[0];
+						imageTextContainer = $("#" + this.imageTextContainerId)[0];
 						if(!imageTextContainer){
 							this.useImageText = false;
 						}
@@ -181,7 +181,7 @@ jQuery.PictureSlides = function () {
 			}
 			mainImage.setAttribute("src", this.images[index][0]);
 			if (this.useImageText) {
-				imageTextContainer.replaceContent(this.images[index][1]);
+				$(imageTextContainer).html(this.images[index][1]);
 			}
 			if(this.useImageCounter){
 				$(imageCounter).html((((this.images.length > 0)? index : -1) + 1) + " / " + this.images.length);
